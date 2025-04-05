@@ -1,0 +1,37 @@
+server:
+  port: ${SERVER_PORT:8081}
+spring:
+  application:
+    name: ${APPLICATION_NAME:payment-service}
+  datasource:
+    url: jdbc:mysql://${MYSQL_HOST:localhost}:${MYSQL_PORT:3306}/${MYSQL_DB:payments?createDatabaseIfNotExist=true}
+    username: ${MYSQL_USER:root}
+    password: ${MYSQL_PASSWORD:12345}
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+eureka:
+  client:
+    register-with-eureka: ${REGISTER_WITH_EUREKA:true}
+    service-url:
+      defaultZone: ${DEFAULT_ZONE:http://localhost:8761/eureka/}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  health:
+    readiness-state:
+      enabled: true
+    liveness-state:
+      enabled: true
+  endpoint:
+    health:
+      probes:
+        enabled: true
+
+stripe:
+  key: sk_test_51O5lQBSGgEI0egUDmcQgmcaBJEv0U5B6YgTsfFgySi6noBWov62hFdzFSF5n6hkywKZ1k3TCDRaVyC3Uh848RPh500xp13OumT
