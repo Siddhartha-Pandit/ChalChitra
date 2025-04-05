@@ -8,13 +8,13 @@ export default function LoggedIn() {
 
   return (
     <div>
-        <ul className="navbar-nav ms-auto py-4 py-lg-0">
-            <li class="nav-item">
-                <a class="nav-link" href="#!" onClick={() => dispatch(removeUserFromState())}>
-                  Çıkış Yap
-                </a>
-            </li>
-        </ul>
+      <ul className="navbar-nav ms-auto py-4 py-lg-0">
+        <li className="nav-item">
+          <a className="nav-link" href="#!" onClick={() => dispatch(removeUserFromState())}>
+            Log Out
+          </a>
+        </li>
+      </ul>
     </div>
   )
 }
